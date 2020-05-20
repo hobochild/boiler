@@ -1,3 +1,5 @@
 export default (req, res) => {
-  res.status(200).send(process.env[process.env.VERCEL_URL.toUpperCase()])
+  const [deploymentId] = process.env.VERCEL_URL.split('.')
+  console.log(process.env[deploymentId])
+  res.status(200).send(process.env[deploymentId.toUpperCase()])
 }
