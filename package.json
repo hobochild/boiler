@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "envfile": "^5.2.0",
     "next": "9.4.1",
     "react": "16.13.1",
     "react-dom": "16.13.1"
