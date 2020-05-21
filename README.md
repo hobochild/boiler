@@ -28,3 +28,5 @@ You can check out [the Next.js GitHub repository](https://github.com/zeit/next.j
 The easiest way to deploy your Next.js app is to use the [ZEIT Now Platform](https://zeit.co/) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+- pass connection details/client threw inline definition?

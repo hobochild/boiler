@@ -3,15 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node lib/migrate.js && next dev",
-    "build": "node lib/run.js && next build",
-    "start": "node lib/migrate.js && next start"
+    "dev": "next dev",
+    "build": "node lib/run.js && node lib/migrate.js && next build",
+    "start": "next start"
   },
   "dependencies": {
     "@zeit/integration-utils": "^0.6.4",
     "aws-sdk": "^2.680.0",
+    "docker-names": "^1.1.1",
     "dotenv": "^8.2.0",
     "envfile": "^5.2.0",
+    "nanoid": "^3.1.9",
     "next": "9.4.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
