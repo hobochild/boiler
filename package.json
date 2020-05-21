@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.680.0",
+    "data-api-client": "^1.0.1",
     "dotenv": "^8.2.0",
     "envfile": "^5.2.0",
     "nanoid": "^3.1.9",
