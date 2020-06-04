@@ -4,17 +4,23 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node lib/run.js && node lib/migrate.js && next build",
+    "db:init": "node lib/run.js",
+    "db:migrate": "node lib/migrate/index.js",
+    "build": "npm run db:init && npm run db:migrate up && next build",
     "start": "next start"
   },
   "dependencies": {
     "aws-sdk": "^2.680.0",
+    "borderless-table": "^2.0.0",
     "data-api-client": "^1.0.1",
     "dotenv": "^8.2.0",
     "envfile": "^5.2.0",
+    "lodash": "^4.17.15",
     "nanoid": "^3.1.9",
     "next": "9.4.1",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "umzug": "^2.3.0",
+    "yargs-parser": "^18.1.3"
   }
 }
