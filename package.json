@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "db:init": "node lib/run.js",
-    "db:migrate": "node lib/migrate/index.js",
+    "db:init": "node lib/bin/index.js init",
+    "db:migrate": "node lib/bin/index.js migrate",
     "build": "npm run db:init && npm run db:migrate up && next build",
     "start": "next start"
   },
