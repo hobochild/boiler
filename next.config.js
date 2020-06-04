@@ -1,3 +1,3 @@
-const plugin = require('./lib/next-plugin')
+const plugin = require('nawr/next-plugin')
 
 module.exports = plugin

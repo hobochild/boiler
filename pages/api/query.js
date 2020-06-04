@@ -1,4 +1,4 @@
-import client from '../../lib/client'
+import client from 'nawr/client'
 
 export default async (req, res) => {
   const data = await client.query('select * from users;')
