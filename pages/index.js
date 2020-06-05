@@ -6,7 +6,7 @@ const Home = ({ users }) => (
       <h1>Nawr Demo</h1>
       <ul>
         {users.map(({ name }) => {
-          return <li>{name}</li>
+          return <li key={name}>{name}</li>
         })}
       </ul>
     </main>

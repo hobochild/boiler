@@ -4,12 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "nawr init && nawr migrate up && next build",
+    "build": "nawr init && next build",
     "start": "next start"
   },
   "dependencies": {
     "nawr": "0.1.0-beta-0.8",
-    "next": "9.4.1",
+    "next": "9.4.3",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   }
