@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "nawr": "0.1.0-beta-0.5",
+    "nawr": "*",
     "next": "9.4.1",
     "react": "16.13.1",
     "react-dom": "16.13.1"
