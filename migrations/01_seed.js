@@ -7,5 +7,6 @@ module.exports = {
       [{ name: 'Cindy' }],
       [{ name: 'Bobby' }]
     ])
-  }
+  },
+  async down() {}
 }

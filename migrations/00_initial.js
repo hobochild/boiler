@@ -1,6 +1,6 @@
 module.exports = {
   async up(client) {
-    return client.query(`create table if not exists users (
+    client.query(`create table if not exists users (
       name text primary key,
       date timestamptz not null default now()
     )`)
