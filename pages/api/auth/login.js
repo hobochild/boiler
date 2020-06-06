@@ -1,14 +1,25 @@
 import withSession from '../../../lib/session'
+import { createUser, getUserByEmail } from '../../../lib/db'
+import bcrypt from 'bcrypt'
+const SALT_ROUNDS = 8
 
 async function handler(req, res) {
-  // get user from database then:
-  // verify password.
+  const { email, password } = req.body
+  let user = await getUserByEmail(email)
+
+  if (user) {
+    const result = await bcrypt.compare(password, user.password)
+    if (!result) {
+      return res.status(403).send('Incorrect password')
+    }
+  } else {
+    const hash = await bcrypt.hash(password, SALT_ROUNDS)
+    user = await createUser({ email, password: hash })
+  }
 
   req.session.set('user', {
-    id: 230,
-    name: 'hobo',
-    email: req.body.email,
-    admin: true
+    id: user.id,
+    email: user.email
   })
   await req.session.save()
   res.send('Logged in')

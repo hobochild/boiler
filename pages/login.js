@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import { withRouter } from 'next/router'
+import Link from 'next/link'
 
 const login = payload => {
   return fetch('/api/auth/login', {
@@ -8,6 +9,9 @@ const login = payload => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(payload)
+  }).then(res => {
+    res.statusCode >= 400
+    throw new Error('Something went wrong.')
   })
 }
 
@@ -17,6 +21,7 @@ export default withRouter(({ router }) => {
 
   return (
     <div>
+      <Link href="/">Home</Link>
       <form
         onSubmit={async e => {
           e.preventDefault()
@@ -32,8 +37,8 @@ export default withRouter(({ router }) => {
           }
         }}
       >
-        <input value="x@gmail.com" type="email" ref={emailRef} />
-        <input password="yy" type="password" ref={passwordRef} />
+        <input type="email" ref={emailRef} />
+        <input type="password" ref={passwordRef} />
         <button type="submit">Login</button>
       </form>
     </div>

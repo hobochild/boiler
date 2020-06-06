@@ -1,26 +1,30 @@
-import client from 'nawr/client'
+import withSession from '../lib/session'
+import { redirect } from '../lib'
+import Link from 'next/link'
 
-const Home = ({ users }) => (
+const Home = ({ user }) => (
   <div className="container">
     <main>
-      <h1>Nawr Demo</h1>
-      <ul>
-        {users.map(({ name }) => {
-          return <li key={name}>{name}</li>
-        })}
-      </ul>
+      <h1>Hobochilds boilerplate</h1>
+      <Link href="/login">
+        <a>Login</a>
+      </Link>
     </main>
   </div>
 )
 
-export const getServerSideProps = async () => {
-  const { records } = await client.query('select * from users;')
+export const getServerSideProps = withSession(async ({ req, res }) => {
+  const user = req.session.get('user')
+
+  if (user) {
+    return redirect('/dashboard')({ req, res })
+  }
 
   return {
     props: {
-      users: records
+      user: user ? user : {}
     }
   }
-}
+})
 
 export default Home
