@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Returns correct Nav when user logged in 1`] = `
+<div
+  style={
+    Object {
+      "marginBottom": "20px",
+    }
+  }
+>
+  <a
+    href="/dashboard"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+  >
+    Dashboard
+  </a>
+   
+  <a
+    onClick={[Function]}
+  >
+    Logout
+  </a>
+</div>
+`;
+
+exports[`Returns correct Nav when user logged out 1`] = `
+<div
+  style={
+    Object {
+      "marginBottom": "20px",
+    }
+  }
+>
+  <a
+    href="/login"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+  >
+    Login
+  </a>
+   
+  <a
+    href="/"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+  >
+    Home
+  </a>
+</div>
+`;
