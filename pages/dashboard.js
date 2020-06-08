@@ -1,55 +1,37 @@
-import React from 'react'
 import withSession from '../lib/session'
-import { redirect } from '../lib'
 import { withRouter } from 'next/router'
 import client from 'nawr/client'
 
-const Home = ({ user, router, users }) => (
+const Dash = ({ user, router, users }) => (
   <div>
-    <main>
-      <h1>
-        {user.id}: {user.email}
-      </h1>
-      <ul>
-        {users.map(({ email, id, password }) => {
-          return (
-            <li key={id}>
-              {email}: {password}
-            </li>
-          )
-        })}
-      </ul>
-      <div>
-        <button
-          onClick={async () => {
-            await fetch('/api/auth/logout', {
-              method: 'POST'
-            })
-
-            router.push('/login')
-          }}
-        >
-          Logout
-        </button>
-      </div>
-    </main>
+    <h3>hi 👋 {user.email}</h3>
+    <p>Here is a list of all users stored in the db</p>
+    <ul>
+      {users.map(({ email, id, password }) => {
+        return <li key={id}>{email}</li>
+      })}
+    </ul>
   </div>
 )
 
 export const getServerSideProps = withSession(async ({ req, res }) => {
-  const user = req.session.get('user')
+  const user = req.session.get('user') || null
+
   if (!user) {
-    redirect('/login')({ req, res })
+    res.setHeader('location', '/login')
+    res.statusCode = 302
+    res.end()
+    return { props: {} }
   }
 
   const { records } = await client.query('select * from users;')
 
   return {
     props: {
-      user,
+      user: user,
       users: records
     }
   }
 })
 
-export default withRouter(Home)
+export default withRouter(Dash)

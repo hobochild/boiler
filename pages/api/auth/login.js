@@ -9,8 +9,10 @@ async function handler(req, res) {
 
   if (user) {
     const result = await bcrypt.compare(password, user.password)
+    console.log({ result })
     if (!result) {
-      return res.status(403).send('Incorrect password')
+      res.status(403).send('Incorrect password')
+      return
     }
   } else {
     const hash = await bcrypt.hash(password, SALT_ROUNDS)
