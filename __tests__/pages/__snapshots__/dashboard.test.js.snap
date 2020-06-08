@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders correctly with logged in user 1`] = `
+<div>
+  <h3>
+    hi 👋 
+    x@x.com
+  </h3>
+  <p>
+    Here is a list of all users stored in the db
+  </p>
+  <ul />
+</div>
+`;

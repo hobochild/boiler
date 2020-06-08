@@ -27,7 +27,7 @@ const Home = ({ user }) => (
   </div>
 )
 
-export const getServerSideProps = withSession(async ({ req, res }) => {
+export const handler = async ({ req, res }) => {
   const user = req.session.get('user') || null
 
   return {
@@ -35,6 +35,7 @@ export const getServerSideProps = withSession(async ({ req, res }) => {
       user
     }
   }
-})
+}
+export const getServerSideProps = withSession(handler)
 
 export default Home

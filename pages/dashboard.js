@@ -14,7 +14,7 @@ const Dash = ({ user, router, users }) => (
   </div>
 )
 
-export const getServerSideProps = withSession(async ({ req, res }) => {
+export const handler = async ({ req, res }) => {
   const user = req.session.get('user') || null
 
   if (!user) {
@@ -32,6 +32,8 @@ export const getServerSideProps = withSession(async ({ req, res }) => {
       users: records
     }
   }
-})
+}
+
+export const getServerSideProps = withSession(handler)
 
 export default withRouter(Dash)
