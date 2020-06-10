@@ -1,6 +1,6 @@
 import withSession from '../../../lib/session'
 
-function handler(req, res, session) {
+export function handler(req, res) {
   req.session.destroy()
   res.send('Logged out')
 }

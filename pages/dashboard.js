@@ -1,13 +1,12 @@
 import withSession from '../lib/session'
-import { withRouter } from 'next/router'
 import client from 'nawr/client'
 
-const Dash = ({ user, router, users }) => (
+const Dash = ({ user, users }) => (
   <div>
     <h3>hi 👋 {user.email}</h3>
     <p>Here is a list of all users stored in the db</p>
     <ul>
-      {users.map(({ email, id, password }) => {
+      {users.map(({ email, id }) => {
         return <li key={id}>{email}</li>
       })}
     </ul>
@@ -36,4 +35,4 @@ export const handler = async ({ req, res }) => {
 
 export const getServerSideProps = withSession(handler)
 
-export default withRouter(Dash)
+export default Dash

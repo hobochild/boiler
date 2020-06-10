@@ -1,9 +1,8 @@
 import withSession, { login } from '../../../lib/session'
 import { createUser, getUserByEmail } from '../../../lib/db'
 import bcrypt from 'bcrypt'
-const SALT_ROUNDS = 8
 
-async function handler(req, res) {
+export async function handler(req, res) {
   const { email, password } = req.body
   let user = await getUserByEmail(email)
 
@@ -14,8 +13,7 @@ async function handler(req, res) {
       return
     }
   } else {
-    const hash = await bcrypt.hash(password, SALT_ROUNDS)
-    user = await createUser({ email, password: hash })
+    user = await createUser({ email, password })
   }
 
   await login(req, {
