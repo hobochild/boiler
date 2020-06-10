@@ -9,6 +9,10 @@ exports[`Renders correctly with logged in user 1`] = `
   <p>
     Here is a list of all users stored in the db
   </p>
-  <ul />
+  <ul>
+    <li>
+      x@x.com
+    </li>
+  </ul>
 </div>
 `;

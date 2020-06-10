@@ -1,7 +1,5 @@
 import { useRef, useState } from 'react'
-import withSession from '../lib/session'
 import { withRouter } from 'next/router'
-import Link from 'next/link'
 
 const login = payload => {
   return fetch('/api/auth/login', {

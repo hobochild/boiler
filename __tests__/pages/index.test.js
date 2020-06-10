@@ -1,14 +1,13 @@
-import React from 'react'
 import renderer from 'react-test-renderer'
 import Home, { handler as getServerSideProps } from '../../pages/index'
-import { ServerResponse, IncomingMessage, request, Headers } from 'http'
+import { createRequest, createResponse } from 'node-mocks-http'
 import { apply, login } from '../../lib/session'
 
 it('Renders correctly', async () => {
-  const req = new IncomingMessage({
+  const req = createRequest({
     method: 'GET'
   })
-  const res = new ServerResponse(req)
+  const res = createResponse()
   await apply(req, res)
 
   const { props } = await getServerSideProps({ req, res })

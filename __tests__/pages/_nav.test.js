@@ -1,4 +1,3 @@
-import React from 'react'
 import renderer from 'react-test-renderer'
 import Nav from '../../pages/_nav'
 import { v4 as uuid } from 'uuid'

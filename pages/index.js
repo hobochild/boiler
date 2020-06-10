@@ -1,7 +1,6 @@
 import withSession from '../lib/session'
-import Link from 'next/link'
 
-const Home = ({ user }) => (
+const Home = () => (
   <div>
     <h1>Hobochilds boilerplate</h1>
     <blockquote>
@@ -28,6 +27,7 @@ const Home = ({ user }) => (
 )
 
 export const handler = async ({ req, res }) => {
+  // this is used in the _Nav
   const user = req.session.get('user') || null
 
   return {
