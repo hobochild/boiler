@@ -4,8 +4,6 @@ This is a minimal example using [nawr](https://github.com/hobochild/nawr).
 
 ## Getting Started
 
-First add the [required environment variables](https://github.com/hobochild/nawr#required-environment-variables)
-
 Then run the dev server:
 
 ```bash
@@ -15,6 +13,14 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Tests
+
+```
+npm test
+# or
+yarn test
+```
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
