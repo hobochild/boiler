@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nawr init && nawr migrate up && next dev",
-    "build": "nawr init --name $DB_NAME --stage $DB_STAGE && nawr migrate up && next build",
+    "build": "nawr init --id $DB_NAME --stage $DB_STAGE && nawr migrate up && next build",
     "start": "next start",
     "test": "nawr init && jest --runInBand"
   },
@@ -29,8 +29,6 @@
     "react-test-renderer": "^16.13.1"
   },
   "jest": {
-    "setupFilesAfterEnv": [
-      "./setupTests.js"
-    ]
+    "setupFilesAfterEnv": ["./setupTests.js"]
   }
 }
